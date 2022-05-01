@@ -42,9 +42,12 @@ keymap("v", "<Leader>1", "%", opts)
 keymap("n", "<A-q>", ":bprevious<CR>", opts)
 keymap("n", "<A-e>", ":bnext<CR>", opts)
 keymap("n", "<A-w>", ":bp <BAR> bd # <CR>", opts)
-keymap("i", "<A-q>", ":bprevious<CR>", opts)
-keymap("i", "<A-e>", ":bnext<CR>", opts)
-keymap("i", "<A-w>", ":bp <BAR> bd # <CR>", opts)
+keymap("i", "<A-q>", "<ESC>:bprevious<CR>", opts)
+keymap("i", "<A-w>", "<ESC>:bp <BAR> bd # <CR>", opts)
+
+-- Swap buffer
+keymap( "n", "<C-Left>", ":BufferLineMovePrev<CR>", opts)
+keymap( "n", "<C-Right>", ":BufferLineMoveNext<CR>", opts)
 
 -- Navigate between window
 keymap("n", "<A-l>", "<C-W>l", opts)
@@ -61,14 +64,14 @@ keymap("n", "<Leader>ww", ":wa<CR>", opts)
 -- Quit all without write
 keymap("n", "<Leader>qq", ":qa!<CR>", opts)
 
+-- Close window
+keymap("n", "<Leader>cc", ":close<CR>", opts)
+
 -- Highlight the line without the newline character
 keymap("n", "vil", "^v$h", opts)
 
 -- Yank line without the newline character
 keymap("n", "<Leader>y", "^y$", opts)
-
--- Paste over without overwriting register
-keymap("x", "<A-p>", "_dP", opts)
 
 -- Resize
 keymap("n", "<A-a><Up>", "<C-w>+", opts)
@@ -88,5 +91,3 @@ keymap( "n", "<Leader>t", ":NvimTreeToggle<CR>", opts)
 -- Auto Format
 keymap( "n", "<Leader>i", ":Format<CR>", opts)
 
-keymap( "n", "<C-Left>", ":BufferLineMovePrev<CR>", opts)
-keymap( "n", "<C-Right>", ":BufferLineMoveNext<CR>", opts)

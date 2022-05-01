@@ -19,4 +19,14 @@ comment.setup {
       location = location,
     }
   end,
+  toggler = {
+        line = ',c<SPACE>',
+  },
+  opleader = {
+        line = ',c',
+        block = ',cs',
+  },
+  mappings = {
+    basic = true
+  }
 }
