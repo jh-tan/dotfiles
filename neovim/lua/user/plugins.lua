@@ -69,12 +69,15 @@ return packer.startup(function(use)
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     }
   }
+
+  -- Color Scheme
   use { "ellisonleao/gruvbox.nvim" }
+  use "rebelot/kanagawa.nvim"
 
   -- LSP related
   use "neovim/nvim-lspconfig" -- enable LSP
-  use 'williamboman/nvim-lsp-installer'
-
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", }

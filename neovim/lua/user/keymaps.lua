@@ -73,6 +73,9 @@ keymap("n", "vil", "^v$h", opts)
 -- Yank line without the newline character
 keymap("n", "<Leader>y", "^y$", opts)
 
+-- Yank all
+keymap("n", "ya", ":%y+<CR>", opts)
+
 -- Resize
 keymap("n", "<A-a><Up>", "<C-w>+", opts)
 keymap("n", "<A-a><Down>", "<C-w>-", opts)
