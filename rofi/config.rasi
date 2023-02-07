@@ -1,0 +1,30 @@
+configuration {
+  font: "Hack Nerd Font 15";
+  show-icons: true;
+  drun-display-format: "{name}";
+  sidebar-mode: false;
+
+  drun {
+    display-name: " ";
+  }
+
+  run {
+    display-name: " ";
+  }
+
+  window {
+    display-name: " ";
+  }
+
+  combi {
+    display-name: " ";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+
+  modi: "window,run,drun";
+}
+@import "style"

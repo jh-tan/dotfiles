@@ -1,0 +1,2 @@
+- Move the `themes` directory to `~/.local/share/rofi`
+- Run `rofi-theme-selector`
