@@ -1,0 +1,9 @@
+set selection-clipboard clipboard
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+
+map { scroll half-up 
+map } scroll half-down
+map i recolor

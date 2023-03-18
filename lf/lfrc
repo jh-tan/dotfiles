@@ -1,0 +1,135 @@
+set shell sh
+set ifs "\n"
+set hidden true
+set ignorecase true
+set previewer ~/.config/lf/pv.sh
+
+# drawbox for showing the border
+set drawbox
+
+# Use the `dim` attribute instead of underline for the cursor in the preview pane
+set cursorpreviewfmt "\033[7;2m"
+
+cmd delete ${{
+	clear; 
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	[ $ans = "y" ] && rm -rf -- $fx
+}}
+
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        *) xdg-open "$f" ;;
+    esac
+}}
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd targz ${{
+    printf "Compressed File Name: "
+    read ans
+    set -f
+    mkdir $ans
+    cp -r $fx $ans
+    tar cvzf $ans.tar $ans
+    rm -rf $ans
+}}
+
+# compress current file or selected files with tar and bzip
+cmd tarbz2 ${{
+    printf "Compressed File Name: "
+    read ans
+    set -f
+    mkdir $ans
+    cp -r $fx $ans
+    tar cvjf $ans.tar.bz2 $ans
+    rm -rf $ans
+}}
+
+# compress current file or selected files with tar and bzip
+cmd tar ${{
+    printf "Compressed File Name: "
+    read ans
+    set -f
+    mkdir $ans
+    cp -r $fx $ans
+    tar cvf $ans.tar $ans
+    rm -rf $ans
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    printf "Compressed File Name: "
+    read ans
+    set -f
+    mkdir $ans
+    cp -r $fx $ans
+    bsdtar -acf $ans.zip $ans
+    rm -rf $ans
+}}
+
+cmd fzf_jump ${{
+    res="$(fd --max-depth=3 . | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+# Remove Binding
+map m
+map c
+map d
+
+# Remap basic function's keybinding
+map . set hidden!
+map cc clear
+map dd delete
+map mf mkfile
+map md mkdir
+map x cut
+map <enter> open
+
+# Remap archive keybinding
+map az zip
+map at tar 
+map ag targz
+map ab tarbz2
+map au unarchive
+
+# Remap movement's keybinding
+map gd cd ~/Downloads
+map gc cd ~/.config
+map cdc cd ~
+
+# fzf_jump
+map f fzf_jump  

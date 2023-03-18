@@ -1,14 +1,15 @@
 # Personal config file
 ---
 ### Checklist
-- [x] Vim/Neovim
-- [x] Tmux
+- [x] Alacritty
+- [x] fzf
+- [x] i3
 - [x] MPV
 - [x] oh-my-zsh
-- [x] fzf
-- [x] rofi
-- [x] i3
 - [x] polybar
+- [x] rofi
+- [x] Tmux
+- [x] Vim/Neovim
 </br>
 .
 </br>
