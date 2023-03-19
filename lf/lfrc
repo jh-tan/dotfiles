@@ -6,6 +6,7 @@ set previewer ~/.config/lf/pv.sh
 
 # drawbox for showing the border
 set drawbox
+set icons
 
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set cursorpreviewfmt "\033[7;2m"
