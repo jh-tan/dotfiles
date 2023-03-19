@@ -1,0 +1,17 @@
+#ls
+alias ls='ls --color=auto'
+alias ll='ls -al'
+
+#cd
+alias cdc='cd ~'
+
+#apps
+alias vim='nvim'
+alias z='zathura_background'
+
+#connect speaker
+alias cbt='bluetoothctl connect CA:4D:06:26:E7:73'
+alias dbt='bluetoothctl disconnect CA:4D:06:26:E7:73'
+
+# Todo
+alias todo='todotxt-machine -c ~/.config/todotxt-machine/.todotxt-machinerc'

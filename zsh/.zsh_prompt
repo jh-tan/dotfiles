@@ -1,0 +1,28 @@
+autoload -U colors && colors
+
+function my_set_prompt() {
+  setopt no_prompt_{bang,subst} prompt_percent
+  PROMPT='%B%(?. %6F. %1F) %6F%~ %f'
+
+  if gitstatus_query MY && [[ $VCS_STATUS_RESULT == ok-sync ]]; then
+    PROMPT+='[%6F '
+    PROMPT+=${${VCS_STATUS_LOCAL_BRANCH:-@${VCS_STATUS_COMMIT}}//\%/%%}
+    PROMPT+='%f |%B'
+    if (( VCS_STATUS_NUM_STAGED ||
+          VCS_STATUS_NUM_UNSTAGED ||
+          VCS_STATUS_NUM_UNTRACKED ||
+          VCS_STATUS_NUM_CONFLICTED )); then
+      
+      (($VCS_STATUS_NUM_STAGED > 0)) && PROMPT+=" %046F+${VCS_STATUS_NUM_STAGED}" 
+      (($VCS_STATUS_NUM_UNSTAGED != 0)) && PROMPT+=" %172F${VCS_STATUS_NUM_UNSTAGED}" 
+      (($VCS_STATUS_NUM_UNTRACKED != 0)) && PROMPT+=" %220FU+${VCS_STATUS_NUM_UNTRACKED}" 
+    else
+      PROMPT+='%046F'
+    fi
+    PROMPT+='%b%f] '
+  fi
+}
+
+gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd my_set_prompt
