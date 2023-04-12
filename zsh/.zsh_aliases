@@ -4,6 +4,7 @@ alias ll='ls -al'
 
 #cd
 alias cdc='cd ~'
+alias 'cd..'='cd_up'
 
 #apps
 alias vim='nvim'
@@ -15,3 +16,7 @@ alias dbt='bluetoothctl disconnect CA:4D:06:26:E7:73'
 
 # Todo
 alias todo='todotxt-machine -c ~/.config/todotxt-machine/.todotxt-machinerc'
+
+# Pacman
+alias syu='sudo pacman -Syu'
+alias si='pacman_install'

@@ -19,11 +19,6 @@ nvim_tree.setup {
   -- Uncomment the open_on_setup if want to open the file explorer on start up
   -- open_on_setup = true,
   -- open_on_setup_file = true,
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
   -- auto_close = true,
   -- open_on_tab = false,
   -- hijack_cursor = false,
@@ -44,7 +39,7 @@ nvim_tree.setup {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 500,
   },
   view = {

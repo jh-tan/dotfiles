@@ -38,6 +38,10 @@ keymap("v", "H", "^", opts)
 keymap("v", "L", "g_", opts)
 keymap("v", "<Leader>1", "%", opts)
 
+-- Remove within Line
+keymap("n", "dH", "d^", opts)
+keymap("n", "dL", "dg_", opts)
+
 -- Navigate between buffer
 keymap("n", "<A-q>", ":bprevious<CR>", opts)
 keymap("n", "<A-e>", ":bnext<CR>", opts)
@@ -83,9 +87,15 @@ keymap("n", "<A-a><Down>", "<C-w>-", opts)
 -- Telescope
 keymap( "n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap( "i", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+-- Grep all *open* files
 keymap( "n", "<Leader>F", "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", opts)
+-- Grep all files (Global)
+keymap( "n", "<Leader>af", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+-- Grep current file
 keymap( "n", "<Leader>f", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
+-- Grep opened tab
 keymap( "n", "<Leader><space>", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+-- Grep all references to current function
 keymap( "n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
 
 -- Nvim-tree

@@ -5,3 +5,15 @@ function unlockGPG() {
     clear
   fi
 }
+
+function zathura_background() {
+  zathura "$@" &
+}
+
+function cd_up() {
+  cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+
+function pacman_install() {
+  sudo pacman -S "$@"
+}

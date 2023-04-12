@@ -69,7 +69,7 @@ end
 M.on_attach = function(client, bufnr)
   -- vim.notify(client.name .. " starting...")
   if client.name == "tsserver" or client.name == "jdt.ls" or client.name == "gopls" then
-    client.resolved_capabilities.document_formatting = false
+     client.server_capabilities.documentFormattingProvider = false
   end
 
   if client.name == "jdt.ls" then

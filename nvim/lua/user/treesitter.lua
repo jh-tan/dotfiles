@@ -3,8 +3,7 @@ if not status_ok then
 	return
 end
 
-local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
-ft_to_parser.motoko = "typescript"
+vim.treesitter.language.register('typescript','motoko')  
 
 configs.setup({
 	ensure_installed = "all", -- one of "all" or a list of languages
