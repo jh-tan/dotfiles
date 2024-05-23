@@ -30,6 +30,14 @@ local options = {
 }
 
 vim.opt.sessionoptions = vim.opt.sessionoptions + "globals"
+vim.g.skip_ts_context_commentstring = true
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
 
 for k, v in pairs(options) do
   vim.opt[k] = v

@@ -1,1 +1,2 @@
-vim.cmd([[colorscheme kanagawa]])
+vim.o.background = "dark" 
+vim.cmd([[colorscheme gruvbox]])

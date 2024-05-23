@@ -55,6 +55,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-l>", "<cmd> lua showAllDiagnostic()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>dt", "<cmd> lua toggleShowDiagnostic()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format { async = true }' ]]
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
@@ -125,6 +126,15 @@ function showAllDiagnostic()
   vim.cmd("lua require('telescope.builtin').loclist()")
 end
 
+local diagnostic_active = false
+function toggleShowDiagnostic()
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+  diagnostics_active = not diagnostics_active
+end
 
 vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handlers").toggle_format_on_save()' ]]
 -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]

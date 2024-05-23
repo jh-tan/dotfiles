@@ -20,14 +20,7 @@ configs.setup({
 		enable = true,
 	},
 	indent = { enable = true, disable = { "python", "css" } },
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
-	autotag = {
-		enable = true,
-		disable = { "xml" },
-	},
+  enable_autocmd = false,
 	rainbow = {
 		enable = true,
 		colors = {

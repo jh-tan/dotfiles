@@ -3,6 +3,12 @@ if not status_ok then
   return
 end
 
+local diagnostics_indicator = function(count, level)
+        local icon = level:match("error") and " " or ""
+        return " " .. icon .. count
+    end
+
+
 bufferline.setup {
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -35,10 +41,8 @@ bufferline.setup {
     tab_size = 21,
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
-    -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-    --   return "("..count..")"
-    -- end,
     -- NOTE: this will be called a lot so don't do any heavy processing here
+    --[[ diagnostics_indicator = diagnostics_indicator,    ]]
     -- custom_filter = function(buf_number)
     --   -- filter out filetypes you don't want to see
     --   if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
@@ -72,13 +76,18 @@ bufferline.setup {
   },
   highlights = {
     background = {
-      bg = {attribute='bg'},
-      fg = {attribute='fg'},
+      bg = '#0b0c0e',
+      fg = '#93908c',
     },
-    -- buffer_selected = {
-      -- fg = { attribute = "fg", highlight = "TabLine" },
-      -- bg = { attribute = "bg", highlight = "TabLine" },
-    -- },
+    buffer_selected = {
+      fg = { attribute = "fg", highlight = "TabLine" },
+      bg = '#3c3836',
+      bold = true,
+      italic = true
+    },
+    buffer_visible = {
+      bg = '#0b0c0e',
+    },
     close_button = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
@@ -121,20 +130,19 @@ bufferline.setup {
     },
     modified_selected = {
       fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = '#3c3836',
     },
     modified_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
-
     separator_selected = {
       fg = { attribute = "bg", highlight = "Normal" },
       bg = { attribute = "bg", highlight = "Normal" },
     },
     indicator_selected = {
       fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = '#FFFFFF',
     },
   },
 }

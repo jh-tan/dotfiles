@@ -80,6 +80,10 @@ keymap("n", "<Leader>y", "^y$", opts)
 -- Yank all
 keymap("n", "ya", ":%y+<CR>", opts)
 
+-- Select all
+keymap("n", "va", "ggVG", opts)
+keymap("v", "va", "ggVG", opts)
+
 -- Resize
 keymap("n", "<A-a><Up>", "<C-w>+", opts)
 keymap("n", "<A-a><Down>", "<C-w>-", opts)
