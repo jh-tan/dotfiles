@@ -1,7 +1,8 @@
 configuration {
-  font: "Hack Nerd Font 15";
+  font: "Hack Nerd Font Bold 15";
   show-icons: true;
   drun-display-format: "{name}";
+  icon-theme: "Papirus-Dark";
   sidebar-mode: false;
 
   drun {
@@ -20,11 +21,26 @@ configuration {
     display-name: " ";
   }
 
+  filebrowser {
+    display-name: "󰉋 ";
+  }
+
   timeout {
     delay: 10;
     action: "kb-cancel";
   }
 
+  kb-accept-entry: "Return";
+  kb-remove-to-eol:"";
+  kb-remove-char-forward : "";
+
+  kb-remove-char-back:"BackSpace,Control+h,Control+x";
+  kb-clear-line:"Control+d";
+  kb-cancel:"Control+w";
+  kb-row-down: "Control+j";
+  kb-row-up: "Control+k";
+
   modi: "window,run,drun";
 }
 @import "style"
+@theme "/home/hui971105/.local/share/rofi/themes/gruvbox-material.rasi"
