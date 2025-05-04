@@ -14,7 +14,7 @@ local servers = {
   "html",
   "jdtls",
   "jsonls",
-  "tsserver",
+  "ts_ls",
   "pyright",
   "clangd",
   "tailwindcss",
