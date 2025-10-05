@@ -23,12 +23,12 @@ keymap("i", "kj", "<ESC>", opts)
 keymap("n", "<ESC>", ":noh<CR>", opts)
 
 -- Move line
-keymap("n", "<A-j>", ":m .+1<CR>==", opts)
-keymap("n", "<A-k>", ":m .-2<CR>==", opts)
-keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+keymap("n", "<C-j>", ":m .+1<CR>==", opts)
+keymap("n", "<C-k>", ":m .-2<CR>==", opts)
+keymap("i", "<C-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("i", "<C-j>", "<Esc>:m .+1<CR>==gi", opts)
+keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Quick navigate within/between line
 keymap("n", "H", "^", opts)
@@ -45,9 +45,10 @@ keymap("n", "dL", "dg_", opts)
 -- Navigate between buffer
 keymap("n", "<A-q>", ":bprevious<CR>", opts)
 keymap("n", "<A-e>", ":bnext<CR>", opts)
-keymap("n", "<A-w>", ":bp <BAR> bd # <CR>", opts)
+keymap("n", "<A-w>", ":bd<CR>", opts)
 keymap("i", "<A-q>", "<ESC>:bprevious<CR>", opts)
-keymap("i", "<A-w>", "<ESC>:bp <BAR> bd # <CR>", opts)
+keymap("i", "<A-e>", "<ESC>:bnext<CR>", opts)
+keymap("i", "<A-w>", "<ESC>:bd<CR>", opts)
 
 -- Swap buffer
 keymap("n", "<C-Left>", ":BufferLineMovePrev<CR>", opts)
@@ -56,8 +57,8 @@ keymap("n", "<C-Right>", ":BufferLineMoveNext<CR>", opts)
 -- Navigate between window
 keymap("n", "<A-l>", "<C-W>l", opts)
 keymap("n", "<A-h>", "<C-W>h", opts)
-keymap("n", "<A-a>j", "<C-W>j", opts)
-keymap("n", "<A-a>", "<C-W>k", opts)
+keymap("n", "<A-j>", "<C-W>j", opts)
+keymap("n", "<A-k>", "<C-W>k", opts)
 
 -- Write and quit all
 keymap("n", "<Leader>wq", ":wqa<CR>", opts)
@@ -102,5 +103,5 @@ keymap("n", "<Leader><space>", "<cmd>lua require('telescope.builtin').buffers()<
 -- Show all Git commit
 keymap("n", "<Leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>", opts)
 
--- Nvim-tree
+-- File Explorer
 keymap("n", "<Leader>t", "<cmd>lua MiniFiles.open()<CR>", opts)
