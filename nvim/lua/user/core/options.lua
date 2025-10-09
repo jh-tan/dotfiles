@@ -43,5 +43,12 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+-- Fold using treesitter
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldenable = true       -- enable folding
+vim.opt.foldlevel = 99          -- keep everything unfolded by default
+vim.opt.foldlevelstart = 99     -- when opening a file, don’t auto-fold everything
+
 -- Color 
 -- vim.cmd([[colorscheme gruvbox]])
