@@ -1,32 +1,32 @@
 local options = {
-  clipboard = "unnamedplus",               
-  syntax = "on",   
-  errorbells = false,
-  tabstop = 2,
-  softtabstop = 2,
-  shiftwidth = 2,
-  expandtab = true,
-  smarttab = true,
-  autoindent = true,
-  smartindent = true,
-  number = true,
-  relativenumber = true,
-  wrap = false,
-  smartcase = true,
-  ignorecase = true,
-  incsearch = true,
-  scrolloff = 8,
-  signcolumn = "yes",  
-  backspace = "indent,eol,start",
-  background = "dark",
-  showmode = false,
-  hidden = true,
-  timeout = true,
-  ttimeout = true,
-  timeoutlen = 3000,
-  ttimeoutlen=50,
-  undofile = true,
-  updatetime = 300
+	clipboard = "unnamedplus",
+	syntax = "on",
+	tabstop = 4,
+	softtabstop = 4,
+	shiftwidth = 4,
+	expandtab = true,
+	smarttab = true,
+	autoindent = true,
+	smartindent = true,
+	errorbells = false,
+	number = true,
+	relativenumber = true,
+	wrap = false,
+	smartcase = true,
+	ignorecase = true,
+	incsearch = true,
+	scrolloff = 8,
+	signcolumn = "yes",
+	backspace = "indent,eol,start",
+	background = "dark",
+	showmode = false,
+	hidden = true,
+	timeout = true,
+	ttimeout = true,
+	timeoutlen = 3000,
+	ttimeoutlen = 50,
+	undofile = true,
+	updatetime = 300,
 }
 
 vim.opt.sessionoptions = vim.opt.sessionoptions + "globals"
@@ -40,15 +40,15 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+	vim.opt[k] = v
 end
 
 -- Fold using treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldenable = true       -- enable folding
-vim.opt.foldlevel = 99          -- keep everything unfolded by default
-vim.opt.foldlevelstart = 99     -- when opening a file, don’t auto-fold everything
+vim.opt.foldenable = true -- enable folding
+vim.opt.foldlevel = 99 -- keep everything unfolded by default
+vim.opt.foldlevelstart = 99 -- when opening a file, don’t auto-fold everything
 
--- Color 
+-- Color
 -- vim.cmd([[colorscheme gruvbox]])

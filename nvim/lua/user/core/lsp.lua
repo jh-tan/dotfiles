@@ -119,7 +119,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("n", "<Leader>ls", lsp.buf.document_symbol, opt("Doument Symbols"))
 
     -- keymap("n", "<Leader>ll", lsp.codelens.run, opt("Run CodeLens"))
-    -- keymap("n", "<Leader>ca", lsp.buf.code_action, opt("Code Action"))
+    keymap("n", "<Leader>ca", lsp.buf.code_action, opt("Code Action"))
 
     keymap("n", "<C-l>", function()
       vim.cmd("lua vim.diagnostic.setloclist({open=false})")

@@ -21,6 +21,7 @@ keymap("i", "kj", "<ESC>", opts)
 
 -- Remove highlight
 keymap("n", "<ESC>", ":noh<CR>", opts)
+keymap("n", "<leader>C", ":noh<CR>", opts)
 
 -- Move line
 keymap("n", "<C-j>", ":m .+1<CR>==", opts)
@@ -53,6 +54,10 @@ keymap("i", "<A-w>", "<ESC>:bd<CR>", opts)
 -- Swap buffer
 keymap("n", "<C-Left>", ":BufferLineMovePrev<CR>", opts)
 keymap("n", "<C-Right>", ":BufferLineMoveNext<CR>", opts)
+
+-- Alternate between current and previous opened buffer
+keymap("n", "<space><space>", "<C-^>", opts)
+keymap("v", "<space><space>", "<C-^>", opts)
 
 -- Navigate between window
 keymap("n", "<A-l>", "<C-W>l", opts)
@@ -100,6 +105,8 @@ keymap("n", "<Leader>af", "<cmd>lua require('telescope.builtin').live_grep()<cr>
 keymap("n", "<Leader>f", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
 -- Grep opened tab
 keymap("n", "<Leader><space>", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+-- Grep all marks (Global)
+keymap("n", "<Leader>ml", "<cmd>lua require('telescope.builtin').marks()<cr>", opts)
 -- Show all Git commit
 keymap("n", "<Leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>", opts)
 
